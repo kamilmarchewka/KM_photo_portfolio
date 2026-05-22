@@ -4,11 +4,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useRef } from "react";
 
 const ImageHoverCard = ({
   imageUrl = "/gallery/20260516_KSAF_AGH_Avi_KMarchewka_004.jpg",
   eventName = "Projekt",
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
@@ -23,6 +26,38 @@ const ImageHoverCard = ({
     });
   };
 
+  // 2. ROZWIĄZANIE: Sprawdzanie pozycji myszy natychmiast po wyrenderowaniu komponentu
+  useEffect(() => {
+    const checkInitialHover = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+
+      // Pobieramy aktualne położenie kafelka na ekranie
+      const rect = containerRef.current.getBoundingClientRect();
+
+      // Sprawdzamy, czy kursor (e.clientX, e.clientY) znajduje się wewnątrz kafelka
+      const isInside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      if (isInside) {
+        setIsHovered(true);
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+      }
+    };
+
+    // Nasłuchujemy jakiegokolwiek ruchu lub po prostu podpięcia myszy po zmianie podstrony
+    window.addEventListener("mousemove", checkInitialHover, { once: true });
+
+    return () => {
+      window.removeEventListener("mousemove", checkInitialHover);
+    };
+  }, []); // Uruchomi się od razu po zamontowaniu komponentu na nowej stronie
+
   return (
     <Link href="/koncerty/avi" className="relative block group">
       {/* Event name */}
@@ -31,6 +66,7 @@ const ImageHoverCard = ({
       </h2>
       {/* Image container */}
       <div
+        ref={containerRef}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
