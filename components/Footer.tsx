@@ -1,26 +1,35 @@
 // src/components/Footer.tsx
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSquareFacebook,
+  faSquareInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
 export default function Footer() {
   return (
     <footer className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-20 border-t border-zinc-200/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-400 tracking-wider font-light">
       <p>
-        © {new Date().getFullYear()} Jan Kowalski. Wszelkie prawa zastrzeżone.
+        &copy; {new Date().getFullYear()} Kamil Marchewka. Wszelkie prawa
+        zastrzeżone.
       </p>
-      <div className="flex gap-6">
+      <div className="flex items-center justify-end gap-3">
+        {/* Facebook */}
         <a
-          href="https://instagram.com"
+          href="https://www.facebook.com/"
           target="_blank"
-          rel="noreferrer"
-          className="hover:text-zinc-600 transition-colors"
+          rel="noopener noreferrer"
+          className="w-5 block text-zinc-900 opacity-40 hover:opacity-100 transition-opacity"
         >
-          Instagram
+          <FontAwesomeIcon icon={faSquareFacebook} />
         </a>
+        {/* Instagram */}
         <a
-          href="https://vimeo.com"
+          href="https://www.instagram.com/"
           target="_blank"
-          rel="noreferrer"
-          className="hover:text-zinc-600 transition-colors"
+          rel="noopener noreferrer"
+          className="w-5 block text-zinc-900 opacity-40 hover:opacity-100 transition-opacity"
         >
-          Vimeo
+          <FontAwesomeIcon icon={faSquareInstagram} />
         </a>
       </div>
     </footer>

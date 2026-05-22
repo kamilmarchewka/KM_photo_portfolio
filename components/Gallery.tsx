@@ -13,7 +13,7 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
 
   return (
     <>
-      <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 [column-fill:_balance]">
+      <section className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 [column-fill:_balance]">
         {photos.map((photo, i) => {
           const isPortrait = photo.orientation === "portrait";
 
@@ -38,16 +38,10 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 priority={i < 3}
               />
-
-              <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <p className="text-xs text-white tracking-wider font-light bg-black/40 backdrop-blur-sm px-2 py-1 rounded">
-                  {photo.alt}
-                </p>
-              </div>
             </motion.div>
           );
         })}
-      </div>
+      </section>
 
       <Lightbox
         index={index}

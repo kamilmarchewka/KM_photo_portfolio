@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 export default function TopBar() {
   return (
-    <nav className="fixed top-0 left-0 w-full p-5 grid grid-cols-[auto_1fr_auto_auto] items-center justify-items-end gap-6 z-999">
+    <nav className="fixed bg-zinc-50 top-0 left-0 w-full p-5 grid grid-cols-[auto_1fr_auto_auto] items-center justify-items-end gap-6 z-999">
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/" className="text-xl font-bold text-zinc-900">
@@ -18,18 +18,10 @@ export default function TopBar() {
       <ul className="flex items-center justify-center gap-8">
         <li>
           <Link
-            href="/concerts"
+            href="/"
             className="text-sm text-zinc-900 opacity-40 hover:opacity-100 transition-opacity"
           >
             Portfolio
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/portraits"
-            className="text-sm text-zinc-900 opacity-40 hover:opacity-100 transition-opacity"
-          >
-            Kontakt
           </Link>
         </li>
       </ul>

@@ -36,7 +36,7 @@ export default function RootLayout({
       lang="en"
       className={`${abrilFatface.variable} ${montserratNormal.variable} ${montserratItalic.variable} h-full antialiased`}
     >
-      <body className="min-h-full font-montserrat">
+      <body className="min-h-full font-montserrat bg-zinc-50 text-zinc-800">
         <TopBar />
         <main className="mx-auto max-w-7xl w-full px-6">{children}</main>
         <Footer />
