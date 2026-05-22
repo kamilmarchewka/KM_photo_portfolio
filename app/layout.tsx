@@ -38,7 +38,9 @@ export default function RootLayout({
     >
       <body className="min-h-full font-montserrat bg-zinc-50 text-zinc-800">
         <TopBar />
-        <main className="mx-auto max-w-7xl w-full px-6">{children}</main>
+        <main className="mx-auto max-w-7xl w-full px-6 lg:px-16">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
