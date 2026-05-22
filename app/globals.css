@@ -3,6 +3,7 @@
 @theme inline {
   --color-background: var(--color-zinc-50);
   --color-foreground: var(--color-zinc-800);
+  --font-abril-fatface: var(--font-abrilFatface), ui-sans-serif, system-ui;
   --font-montserrat:
     var(--font-montserrat-normal), var(--font-montserrat-italic), ui-sans-serif,
     system-ui;

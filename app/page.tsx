@@ -8,13 +8,21 @@ export default function HomePage() {
   return (
     <>
       {/* Main header */}
-      <header className="relative flex flex-col items-center justify-center py-32">
-        {/* Logo w tle, które się rysuje */}
-
-        <h1 className="text-7xl tracking-tight text-zinc-800">
-          Kamil Marchewka
+      <header className="relative flex flex-col items-center justify-center gap-16 pt-40 py-32">
+        {/* SVG logo with animation */}
+        <h1 className="text-6xl md:text-7xl lg:text-9xl tracking-tight text-zinc-800 font-abril-fatface">
+          <span className="block">Kamil</span>
+          <span className="md:ml-32 block">Marchewka</span>
         </h1>
-        <p className="ml-40 hidden">jakis gowo cytat</p>
+
+        {/* Quote */}
+        <div className="sm:ml-auto sm:mr-28 flex flex-col items-end gap-3">
+          <p className="max-w-[20em] italic font-light text-zinc-950">
+            "Nie istnieją reguły opisujące dobrą fotografię, są tylko dobre
+            fotografie."
+          </p>
+          <span className="font-bold text-sm text-zinc-300">- Ansel Adams</span>
+        </div>
       </header>
       {/* Section with categories */}
       <section className="flex flex-col">

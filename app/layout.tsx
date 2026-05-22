@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Dynalight, Abril_Fatface } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 
-// 1. Load all normal weights (Variable font handles this automatically)
+const abrilFatface = Abril_Fatface({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-abril-fatface",
+});
 const montserratNormal = Montserrat({
   subsets: ["latin"],
   style: "normal",
   variable: "--font-montserrat-normal",
 });
 
-// 2. Load all italic weights
 const montserratItalic = Montserrat({
   subsets: ["latin"],
   style: "italic",
@@ -31,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserratNormal.variable} ${montserratItalic.variable} h-full antialiased`}
+      className={`${abrilFatface.variable} ${montserratNormal.variable} ${montserratItalic.variable} h-full antialiased`}
     >
       <body className="min-h-full font-montserrat">
         <TopBar />
