@@ -33,6 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      suppressHydrationWarning
       lang="en"
       className={`${abrilFatface.variable} ${montserratNormal.variable} ${montserratItalic.variable} h-full antialiased`}
     >

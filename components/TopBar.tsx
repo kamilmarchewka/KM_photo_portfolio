@@ -11,7 +11,7 @@ export default function TopBar() {
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/" className="text-xl font-bold text-zinc-900">
-          Photo Portfolio
+          KM
         </Link>
       </div>
       {/* Navigation */}
