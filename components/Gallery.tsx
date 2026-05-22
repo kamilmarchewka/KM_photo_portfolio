@@ -8,18 +8,19 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { Photo } from "@/types";
 
-export default function Gallery({ photos }: { photos: Photo[] }) {
+export default function Gallery({ photos }: { photos: string[] }) {
   const [index, setIndex] = useState<number>(-1);
 
   return (
     <>
       <section className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 [column-fill:_balance]">
         {photos.map((photo, i) => {
-          const isPortrait = photo.orientation === "portrait";
+          // const isPortrait = photo.orientation === "portrait";
+          const isPortrait = 0;
 
           return (
             <motion.div
-              key={photo.id}
+              key={photo}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
@@ -29,8 +30,8 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
               onClick={() => setIndex(i)}
             >
               <Image
-                src={photo.src}
-                alt={photo.alt}
+                src={photo}
+                alt={photo}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 cubic-bezier(0.25, 1, 0.5, 1) group-hover:scale-[1.03]"
@@ -47,7 +48,7 @@ export default function Gallery({ photos }: { photos: Photo[] }) {
         index={index}
         open={index >= 0}
         close={() => setIndex(-1)}
-        slides={photos.map((p) => ({ src: p.src, alt: p.alt }))}
+        slides={photos.map((p) => ({ src: p, alt: p }))}
         styles={{
           container: { backgroundColor: "rgba(24, 24, 27, 0.98)" },
         }}
