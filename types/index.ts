@@ -5,3 +5,9 @@ export interface Photo {
   alt: string;
   orientation: "portrait" | "landscape";
 }
+
+export interface Category {
+  title: string;
+  slug: string;
+  coverImageSrc: string;
+}
