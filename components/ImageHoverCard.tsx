@@ -10,6 +10,8 @@ import { useRef } from "react";
 const ImageHoverCard = ({
   imageUrl = "/gallery/20260516_KSAF_AGH_Avi_KMarchewka_004.jpg",
   eventName = "Projekt",
+  kategoria = "koncerty",
+  event = "/",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -59,7 +61,7 @@ const ImageHoverCard = ({
   }, []); // Uruchomi się od razu po zamontowaniu komponentu na nowej stronie
 
   return (
-    <Link href="/koncerty/avi" className="relative block group">
+    <Link href={`/${kategoria}/${event}`} className="relative block group">
       {/* Event name */}
       <h2 className="block absolute top-full lg:top-auto left-1/2 lg:left-0 lg:bottom-0 px-2 py-1 origin-bottom-left transform -translate-x-1/2 lg:translate-x-0 lg:-rotate-90 text-sm tracking-widest uppercase font-black text-zinc-500">
         {eventName}

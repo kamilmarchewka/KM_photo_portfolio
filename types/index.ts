@@ -11,3 +11,8 @@ export interface Category {
   slug: string;
   coverImageSrc: string;
 }
+
+export interface EventData {
+  title: string;
+  gallery_dir: string;
+}

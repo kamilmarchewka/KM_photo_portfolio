@@ -2,20 +2,26 @@ import Gallery from "@/components/Gallery";
 import Image from "next/image";
 import Link from "next/link";
 import { photoData } from "@/data/photos";
-import { getPostWithGallery } from "@/lib/parse-photos";
 import { notFound } from "next/navigation";
+import { getEventDetails } from "@/lib/content";
 
-export default function Koncerty({ params }: any) {
-  const { slug } = params;
-  const photoshoot = getPostWithGallery("avi");
-  console.log("asldkfjaskldf", photoshoot);
+export default async function Koncerty({
+  params,
+}: {
+  params: { kategoria: string; event: string };
+}) {
+  // 1. Czekamy na rozpakowanie parametrów z URL
+  const { kategoria, event } = await params;
 
-  // if (!photoshoot) {
-  //   notFound();
-  // }
+  // 2. Pobieramy dane z naszego pliku lib/content.ts
+  const eventData = getEventDetails(kategoria, event);
 
-  // console.log("Post z galerią:", photoshoot);
+  // 3. Jeśli funkcja zwróciła null (brak pliku), pokazujemy stronę 404
+  if (!eventData) {
+    notFound();
+  }
 
+  console.log("Event Data:", eventData);
   return (
     <>
       {/* Main header */}
@@ -27,7 +33,7 @@ export default function Koncerty({ params }: any) {
       </header>
       {/* Gallery */}
 
-      <Gallery photos={photoshoot?.images || []} />
+      <Gallery photos={eventData?.images || []} />
     </>
   );
 }

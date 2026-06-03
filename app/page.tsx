@@ -3,7 +3,7 @@ import Gallery from "@/components/Gallery";
 import { photoData } from "@/data/photos";
 import Image from "next/image";
 import Link from "next/link";
-import { getCategories } from "@/lib/get-categories";
+import { getCategories } from "@/lib/content";
 
 export default function HomePage() {
   const categories = getCategories();
