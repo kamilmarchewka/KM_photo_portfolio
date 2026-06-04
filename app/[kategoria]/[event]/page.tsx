@@ -3,8 +3,43 @@ import Image from "next/image";
 import Link from "next/link";
 import { photoData } from "@/data/photos";
 import { notFound } from "next/navigation";
-import { getEventDetails } from "@/lib/content";
+import {
+  getEventDetails,
+  getEventsForCategory,
+  getCategories,
+} from "@/lib/content";
 
+// app/blog/[slug]/page.tsx
+interface RouteParams {
+  kategoria: string;
+  event: string;
+}
+
+export async function generateStaticParams() {
+  // Pobieramy wszystkie kategorie (foldery z /content)
+  const categories = getCategories();
+  const paths: RouteParams[] = [];
+
+  for (const category of categories) {
+    // Zakładam, że kategoria ma pole 'slug'. Jeśli nie, dostosuj to (np. category.title)
+    const categorySlug = category.slug;
+
+    if (!categorySlug) continue;
+
+    // Pobieramy eventy dla danej kategorii
+    const events = getEventsForCategory(categorySlug);
+
+    events.forEach((event) => {
+      paths.push({
+        kategoria: categorySlug,
+        event: event.slug,
+      });
+    });
+  }
+
+  console.log("Wygenerowane ścieżki:", paths);
+  return paths;
+}
 export default async function Koncerty({
   params,
 }: {

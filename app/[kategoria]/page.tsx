@@ -4,6 +4,12 @@ import Link from "next/link";
 import ImageHoverCard from "@/components/ImageHoverCard";
 import { getEventsForCategory } from "@/lib/content";
 import { notFound } from "next/navigation";
+import { getCategories } from "@/lib/content";
+
+export async function generateStaticParams() {
+  const categories = getCategories();
+  return categories.map((category: any) => ({ kategoria: category.slug }));
+}
 
 export default async function Kategoria({
   params,
