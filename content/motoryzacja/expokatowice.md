@@ -1,3 +1,0 @@
----
-title: "expo katowice"
----
