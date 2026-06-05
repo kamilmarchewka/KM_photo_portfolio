@@ -13,10 +13,10 @@ export default function Gallery({ photos }: { photos: string[] }) {
 
   return (
     <>
-      <section className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 [column-fill:_balance]">
+      <section className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6 [column-fill:balance]">
         {photos.map((photo, i) => {
           // const isPortrait = photo.orientation === "portrait";
-          const isPortrait = 0;
+          const isPortrait = photo.includes("--p");
 
           return (
             <motion.div
@@ -25,7 +25,7 @@ export default function Gallery({ photos }: { photos: string[] }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
               className={`relative inline-block w-full overflow-hidden bg-zinc-100 cursor-pointer group break-inside-avoid mb-6 ${
-                isPortrait ? "aspect-[2/3]" : "aspect-[3/2]"
+                isPortrait ? "aspect-2/3" : "aspect-3/2"
               }`}
               onClick={() => setIndex(i)}
             >
