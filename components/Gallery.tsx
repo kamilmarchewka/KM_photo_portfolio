@@ -59,7 +59,7 @@ export default function Gallery({ photos }: { photos: string[] }) {
             return (
               <div
                 key={rowIndex}
-                className="grid grid-cols-3 md:grid-cols-12 gap-4 w-full"
+                className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full"
               >
                 {row.photos.map((photo: any) => (
                   <RenderPhoto
@@ -78,7 +78,7 @@ export default function Gallery({ photos }: { photos: string[] }) {
             return (
               <div
                 key={rowIndex}
-                className="grid grid-cols-2 md:grid-cols-12 gap-4 w-full"
+                className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full"
               >
                 {row.photos.map((photo: any) => (
                   <RenderPhoto
