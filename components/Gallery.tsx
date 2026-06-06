@@ -153,17 +153,17 @@ export default function Gallery({ photos }: { photos: string[] }) {
             return (
               <div
                 key={rowIndex}
-                className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full"
+                className="flex flex-col md:flex-row gap-4 w-full"
               >
                 <RenderPhoto
                   src={row.photos[0]}
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="col-span-1 md:col-span-4 aspect-[2/3]"
+                  className="aspect-[2/3] md:flex-1"
                 />
                 <RenderPhoto
                   src={row.photos[1]}
                   sizes="(max-width: 768px) 100vw, 66vw"
-                  className="col-span-1 md:col-span-8 w-full aspect-[3/2] md:aspect-auto md:h-full"
+                  className="aspect-[3/2] md:flex-[2.25]"
                 />
               </div>
             );
@@ -174,17 +174,17 @@ export default function Gallery({ photos }: { photos: string[] }) {
             return (
               <div
                 key={rowIndex}
-                className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full"
+                className="flex flex-col md:flex-row gap-4 w-full"
               >
                 <RenderPhoto
                   src={row.photos[0]}
                   sizes="(max-width: 768px) 100vw, 66vw"
-                  className="col-span-1 md:col-span-8 w-full aspect-[3/2] md:aspect-auto md:h-full"
+                  className="aspect-[3/2] md:flex-[2.25]"
                 />
                 <RenderPhoto
                   src={row.photos[1]}
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="col-span-1 md:col-span-4 aspect-[2/3]"
+                  className="aspect-[2/3] md:flex-1"
                 />
               </div>
             );
