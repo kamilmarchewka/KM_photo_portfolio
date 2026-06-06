@@ -66,7 +66,7 @@ export default function Gallery({ photos }: { photos: string[] }) {
                     key={photo}
                     src={photo}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="col-span-1 md:col-span-4 aspect-2/3"
+                    className="col-span-1 md:col-span-4 aspect-[2/3]"
                   />
                 ))}
               </div>
@@ -85,7 +85,7 @@ export default function Gallery({ photos }: { photos: string[] }) {
                     key={photo}
                     src={photo}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="col-span-1 md:col-span-6 aspect-3/2"
+                    className="col-span-1 md:col-span-6 aspect-[3/2]"
                   />
                 ))}
               </div>
@@ -97,23 +97,23 @@ export default function Gallery({ photos }: { photos: string[] }) {
             return (
               <div
                 key={rowIndex}
-                className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full"
+                className="flex flex-col md:flex-row gap-4 w-full"
               >
                 <RenderPhoto
                   src={row.photos[0]}
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="col-span-1 md:col-span-3 aspect-2/3"
+                  className="w-full aspect-[2/3] md:flex-1"
                 />
-                <div className="col-span-1 md:col-span-9 grid grid-rows-2 gap-4 h-full">
+                <div className="w-full flex-1 md:flex-[1.0925] grid gap-4">
                   <RenderPhoto
                     src={row.photos[1]}
                     sizes="(max-width: 768px) 100vw, 75vw"
-                    className="h-full w-full"
+                    className="w-full aspect-[3/2] md:aspect-auto md:h-full"
                   />
                   <RenderPhoto
                     src={row.photos[2]}
                     sizes="(max-width: 768px) 100vw, 75vw"
-                    className="h-full w-full"
+                    className="w-full aspect-[3/2] md:aspect-auto md:h-full"
                   />
                 </div>
               </div>
@@ -125,30 +125,30 @@ export default function Gallery({ photos }: { photos: string[] }) {
             return (
               <div
                 key={rowIndex}
-                className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full"
+                className="flex flex-col-reverse md:flex-row gap-4 w-full"
               >
-                <div className="col-span-1 md:col-span-9 grid grid-rows-2 gap-4 h-full">
+                <div className="w-full flex-1 md:flex-[1.0925] grid gap-4">
                   <RenderPhoto
                     src={row.photos[0]}
                     sizes="(max-width: 768px) 100vw, 75vw"
-                    className="h-full w-full"
+                    className="w-full aspect-[3/2] md:aspect-auto md:h-full"
                   />
                   <RenderPhoto
                     src={row.photos[1]}
                     sizes="(max-width: 768px) 100vw, 75vw"
-                    className="h-full w-full"
+                    className="w-full aspect-[3/2] md:aspect-auto md:h-full"
                   />
                 </div>
                 <RenderPhoto
                   src={row.photos[2]}
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="col-span-1 md:col-span-3 aspect-2/3"
+                  className="w-full aspect-[2/3] md:flex-1"
                 />
               </div>
             );
           }
 
-          // 5. PION + POZIOM (4 + 8) -> Minimalne docięcie poziomego, żeby zrównać wysokości
+          // 5. PION + POZIOM (4 + 8)
           if (row.type === "vertical-horizontal") {
             return (
               <div
@@ -158,12 +158,12 @@ export default function Gallery({ photos }: { photos: string[] }) {
                 <RenderPhoto
                   src={row.photos[0]}
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="col-span-1 md:col-span-4 aspect-2/3"
+                  className="col-span-1 md:col-span-4 aspect-[2/3]"
                 />
                 <RenderPhoto
                   src={row.photos[1]}
                   sizes="(max-width: 768px) 100vw, 66vw"
-                  className="col-span-1 md:col-span-8 h-full w-full"
+                  className="col-span-1 md:col-span-8 w-full aspect-[3/2] md:aspect-auto md:h-full"
                 />
               </div>
             );
@@ -179,13 +179,33 @@ export default function Gallery({ photos }: { photos: string[] }) {
                 <RenderPhoto
                   src={row.photos[0]}
                   sizes="(max-width: 768px) 100vw, 66vw"
-                  className="col-span-1 md:col-span-8 h-full w-full"
+                  className="col-span-1 md:col-span-8 w-full aspect-[3/2] md:aspect-auto md:h-full"
                 />
                 <RenderPhoto
                   src={row.photos[1]}
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="col-span-1 md:col-span-4 aspect-2/3"
+                  className="col-span-1 md:col-span-4 aspect-[2/3]"
                 />
+              </div>
+            );
+          }
+
+          // 8. DWA PIONOWE (6 + 6) -> Dwa pionowe zdjęcia obok siebie
+          if (row.type === "two-vertical") {
+            return (
+              <div
+                key={rowIndex}
+                className="grid grid-cols-1 md:grid-cols-12 gap-4 w-full"
+              >
+                {row.photos.map((photo: any) => (
+                  <RenderPhoto
+                    key={photo}
+                    src={photo}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    // Na mobile: 1 kolumna, na desktopie: 6 z 12 kolumn (czyli po połowie)
+                    className="col-span-1 md:col-span-6 aspect-2/3"
+                  />
+                ))}
               </div>
             );
           }

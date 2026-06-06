@@ -79,7 +79,7 @@ const ImageHoverCard = ({
           fill
           src={imageUrl}
           alt={eventName}
-          className={`transform lg:group-hover:scale-105 transition-transform duration-1000`}
+          className={`transform lg:group-hover:scale-105 transition-transform duration-1000 object-cover`}
         />
 
         {/* Circle pinned to the cursor */}

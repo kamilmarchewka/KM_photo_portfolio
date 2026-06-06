@@ -22,6 +22,11 @@ export function generateGalleryRows(photos: string[]): any[] {
       rows.push({ type: "two-horizontal", photos: queue.splice(0, 2) });
       continue;
     }
+    // 1. UKŁAD: DWA PIONOWE [V, V]
+    if (queue.length >= 2 && !h0 && !h1) {
+      rows.push({ type: "two-vertical", photos: queue.splice(0, 2) });
+      continue;
+    }
 
     // 2. UKŁAD: MIKS LEWY [V, H, H]
     if (queue.length >= 3 && !h0 && h1 && h2) {
