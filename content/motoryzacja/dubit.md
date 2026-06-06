@@ -1,5 +1,5 @@
 ---
 title: "Dub It"
 slug: "dubit"
-coverImageSrc: "/gallery/motoryzacja/dubit/DubIt-1.avif"
+coverImageSrc: "/gallery/motoryzacja/dubit/DubIt-1--h.avif"
 ---
