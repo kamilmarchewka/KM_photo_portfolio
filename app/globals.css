@@ -8,3 +8,8 @@
     var(--font-montserrat-normal), var(--font-montserrat-italic), ui-sans-serif,
     system-ui;
 }
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}

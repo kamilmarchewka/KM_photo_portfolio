@@ -15,7 +15,7 @@ export default function Footer() {
       <div className="flex items-center justify-end gap-3">
         {/* Facebook */}
         <a
-          href="https://www.facebook.com/"
+          href="https://www.facebook.com/kamil.marchewka.370/"
           target="_blank"
           rel="noopener noreferrer"
           className="w-5 block text-zinc-900 opacity-40 hover:opacity-100 transition-opacity"
@@ -24,7 +24,7 @@ export default function Footer() {
         </a>
         {/* Instagram */}
         <a
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/kmarchewka_/"
           target="_blank"
           rel="noopener noreferrer"
           className="w-5 block text-zinc-900 opacity-40 hover:opacity-100 transition-opacity"

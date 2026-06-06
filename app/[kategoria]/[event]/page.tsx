@@ -1,7 +1,6 @@
 import Gallery from "@/components/Gallery";
 import Image from "next/image";
 import Link from "next/link";
-import { photoData } from "@/data/photos";
 import { notFound } from "next/navigation";
 import {
   getEventDetails,
@@ -62,8 +61,8 @@ export default async function Koncerty({
       {/* Main header */}
       <header className="relative flex flex-col items-center justify-center gap-16 pt-40 py-32">
         {/* SVG logo with animation */}
-        <h1 className="text-6xl md:text-7xl lg:text-9xl tracking-tight text-zinc-800 font-abril-fatface">
-          Koncerty
+        <h1 className="text-6xl md:text-7xl lg:text-9xl tracking-tight text-zinc-800 font-abril-fatface text-center">
+          {eventData.title}
         </h1>
       </header>
       {/* Gallery */}

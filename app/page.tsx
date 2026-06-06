@@ -1,6 +1,5 @@
 // src/app/page.tsx
 import Gallery from "@/components/Gallery";
-import { photoData } from "@/data/photos";
 import Image from "next/image";
 import Link from "next/link";
 import { getCategories } from "@/lib/content";
@@ -30,11 +29,11 @@ export default function HomePage() {
         </div>
       </header>
       {/* Section with categories */}
-      <section className="flex flex-col gap-8">
+      <section id="portfolio" className="flex flex-col gap-8">
         {categories.map(({ title, slug, coverImageSrc }) => (
           <div
             key={slug}
-            className="group relative pl-10 lg:pl-20 pr-8 pt-8 pb-7 rounded-md flex flex-col justify-center items-center md:items-start gap-56 md:gap-16"
+            className="group relative pl-10 lg:pl-20 pr-8 pt-8 pb-7 rounded-sm flex flex-col justify-center items-center md:items-start gap-56 md:gap-16 overflow-hidden"
           >
             {/* Background photo */}
             <div className="hidden lg:block absolute inset-0 w-full h-full bg-zinc-50/80 -z-10 transform -translate-x-full opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition duration-500" />

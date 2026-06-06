@@ -32,7 +32,7 @@ export default function Gallery({ photos }: { photos: string[] }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`relative overflow-hidden bg-zinc-100 cursor-pointer group rounded-xl ${className}`}
+        className={`relative overflow-hidden bg-zinc-100 cursor-pointer group rounded-sm ${className}`}
         onClick={() => setIndex(globalIndex)}
       >
         <Image
