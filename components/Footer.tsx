@@ -22,7 +22,7 @@ export default function Footer() {
         >
           <FontAwesomeIcon icon={faSquareFacebook} />
         </a>
-        {/* Instagram */}
+        {/* Instagramm */}
         <a
           href="https://www.instagram.com/kmarchewka_/"
           target="_blank"
