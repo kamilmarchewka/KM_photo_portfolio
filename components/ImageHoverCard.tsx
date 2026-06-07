@@ -62,10 +62,6 @@ const ImageHoverCard = ({
 
   return (
     <Link href={`/${kategoria}/${event}`} className="relative block group">
-      {/* Event name */}
-      <h2 className="block absolute top-full lg:top-auto left-1/2 lg:left-0 lg:bottom-0 px-2 py-1 origin-bottom-left transform -translate-x-1/2 lg:translate-x-0 lg:-rotate-90 text-sm tracking-widest uppercase font-black text-zinc-500">
-        {eventName}
-      </h2>
       {/* Image container */}
       <div
         ref={containerRef}
@@ -114,6 +110,11 @@ const ImageHoverCard = ({
           )}
         </AnimatePresence>
       </div>
+
+      {/* Event name */}
+      <h2 className="block text-center lg:text-left lg:absolute lg:top-auto lg:left-0 lg:bottom-0 px-2 py-1 origin-bottom-left transform lg:translate-x-0 lg:-rotate-90 text-sm tracking-widest uppercase font-black text-zinc-500">
+        {eventName}
+      </h2>
     </Link>
   );
 };
