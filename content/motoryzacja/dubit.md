@@ -1,5 +1,5 @@
 ---
-title: "Dub It"
+title: "Dub It 2025 - Katowice"
 slug: "dubit"
-coverImageSrc: "/gallery/motoryzacja/dubit/DubIt-1--h.avif"
+coverImageSrc: "/gallery/motoryzacja/dubit/DUBIT-1--h.avif"
 ---
